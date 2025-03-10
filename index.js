@@ -1,5 +1,16 @@
 const themeToggle = document.querySelector('.theme-toggle');
 const promptBtn = document.querySelector('.prompt-btn');
+const promptInput = document.querySelector('.prompt-input');
+
+
+const examplePrompt = [
+  "A futuristic city skyline at sunset, cyberpunk style",
+  "A cute baby dragon sleeping on a pillow, digital painting",
+  "A realistic portrait of an astronaut exploring Mars",
+  "A beautiful waterfall surrounded by dense jungle, 4K wallpaper",
+  "A majestic lion with a golden mane, photorealistic"
+];
+
 
 // Set theme on page load
 (() => {  
@@ -19,3 +30,9 @@ themeToggle.addEventListener('click', () => {
 });
 
 
+// Generate random prompt
+promptBtn.addEventListener('click', () => {
+  const prompt = examplePrompt[Math.floor(Math.random() * examplePrompt.length)];
+  promptInput.value = prompt;
+  promptInput.focus();
+});
